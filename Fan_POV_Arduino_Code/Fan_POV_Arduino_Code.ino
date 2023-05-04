@@ -423,10 +423,10 @@ void loop() {
   // demo_1();
   // demo_sensor_read();
   // demo_read_image();
-  // demo_use_timer();
+  demo_use_timer();
 
   //Main
-  main_method();
+  //main_method();
 
 }
 

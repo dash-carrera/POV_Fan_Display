@@ -15,13 +15,17 @@ def get_polar_coordinates(x, y):
 
 
 def downsample_image_to_polar(image_path, num_sections=360, radius=36):
-    # Open the image and convert it to grayscale
+    # Open the image
     image = Image.open(image_path)
+    print(image)
     resized_image = image.resize((49, 49), Image.LANCZOS)
     resized_image.save('resized_image.png')
     # Convert the image to a numpy array
     img_array = np.array(resized_image)
+    print()
+    print(img_array.shape)
     rgb_arr = img_array[:, :, :3] #Remove alpha channel if present
+
 
     sections = []
     debugging_plot_theta = []
