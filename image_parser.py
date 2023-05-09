@@ -13,18 +13,20 @@ def get_polar_coordinates(x, y):
     percent_around_circle = (theta+np.pi)/(2*np.pi)
     return percent_around_circle, r
 
-
 def downsample_image_to_polar(image_path, num_sections=360, radius=36):
     # Open the image
     image = Image.open(image_path)
-    print(image)
     resized_image = image.resize((49, 49), Image.LANCZOS)
     resized_image.save('resized_image.png')
     # Convert the image to a numpy array
     img_array = np.array(resized_image)
-    print()
-    print(img_array.shape)
+
+    print(img_array)
     rgb_arr = img_array[:, :, :3] #Remove alpha channel if present
+
+    rgb_arr = rgb_arr[np.count_nonzero(rgb_arr == 0, axis=2) != 3]
+
+
 
 
     sections = []
